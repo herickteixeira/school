@@ -5,9 +5,9 @@ import com.school.core.domain.student.Email;
 import com.school.core.domain.student.Student;
 
 public class EnrollStudentDto {
-    private String name;
-    private String email;
-    private String cpf;
+    private final String name;
+    private final String email;
+    private final String cpf;
 
     public EnrollStudentDto(String name, String email, String cpf) {
         this.name = name;

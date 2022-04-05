@@ -1,5 +1,8 @@
-package com.school.core.domain.student;
+package com.school.core.domain;
 
+import com.school.core.domain.student.Cpf;
+import com.school.core.domain.student.Email;
+import com.school.core.domain.student.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

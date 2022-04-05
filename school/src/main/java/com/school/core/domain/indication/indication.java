@@ -1,4 +1,4 @@
-package com.school.core.indication;
+package com.school.core.domain.indication;
 
 import com.school.core.domain.student.Student;
 
