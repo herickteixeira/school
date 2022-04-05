@@ -16,18 +16,23 @@ class StudentTest {
                 new Cpf("111.111.111-11"));
     }
     @Test
+    void shouldAddOnePhone(){
+        this.student.addPhone("55 222222222");
+        assertEquals(1, this.student.getPhones().size());
+    }
+    @Test
     void shouldAddTwoPhones(){
-        this.student.addTelephone("11 222222222");
-        this.student.addTelephone("33 222222222");
-        assertEquals(2, this.student.getTelephones().size());
+        this.student.addPhone("11 222222222");
+        this.student.addPhone("33 222222222");
+        assertEquals(2, this.student.getPhones().size());
     }
 
     @Test
     void shouldntAddTreePhones(){
         assertThrows(IllegalArgumentException.class, () -> {
-            this.student.addTelephone("11 222222222");
-            this.student.addTelephone("33 222222222");
-            this.student.addTelephone("44 222222222");
+            this.student.addPhone("11 222222222");
+            this.student.addPhone("33 222222222");
+            this.student.addPhone("44 222222222");
         });
     }
 }
