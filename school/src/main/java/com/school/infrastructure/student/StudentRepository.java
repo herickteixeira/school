@@ -4,7 +4,7 @@ import com.school.core.domain.student.Cpf;
 import com.school.core.domain.student.Email;
 import com.school.core.domain.student.interfaces.IStudentRepository;
 import com.school.core.domain.student.Student;
-import com.school.core.domain.student.Telephone;
+import com.school.core.domain.student.Phone;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,8 +33,8 @@ public class StudentRepository implements IStudentRepository {
 
             sql = "INSERT INTO TELEPHONE VALUES(?)";
             ps = connection.prepareStatement(sql);
-            for (Telephone telephone : student.getTelephones()) {
-                ps.setString(1, telephone.getNumber());
+            for (Phone phone : student.getPhones()) {
+                ps.setString(1, phone.getNumber());
                 ps.execute();
             }
 
@@ -46,7 +46,7 @@ public class StudentRepository implements IStudentRepository {
     @Override
     public Student getByCpf(Cpf cpf) {
         try {
-            String sql = "SELECT id, name, email FROM STUDENT WHERE cpf = ?";
+            String sql = "SELECT id, name, email FROM student WHERE cpf = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, cpf.getCpf());
 
@@ -61,13 +61,13 @@ public class StudentRepository implements IStudentRepository {
             Student founded = new Student(name, email, cpf);
 
             Long id = rs.getLong("id");
-            sql = "SELECT number FROM TELEPHONE WHERE student_id = ?";
+            sql = "SELECT number FROM phone WHERE student_id = ?";
             ps = connection.prepareStatement(sql);
             ps.setLong(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 String number = rs.getString("number");
-                founded.addTelephone(number);
+                founded.addPhone(number);
             }
 
             return founded;
@@ -79,7 +79,7 @@ public class StudentRepository implements IStudentRepository {
     @Override
     public List<Student> getStudentList() {
         try {
-            String sql = "SELECT id, name, email, cpf FROM STUDENT";
+            String sql = "SELECT id, name, email, cpf FROM student";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             List<Student> students = new ArrayList<>();
@@ -90,13 +90,13 @@ public class StudentRepository implements IStudentRepository {
                 Student student = new Student(name, email, cpf);
 
                 Long id = rs.getLong("id");
-                sql = "SELECT number FROM TELEPHONE WHERE student_id = ?";
-                PreparedStatement psTelephone = connection.prepareStatement(sql);
-                psTelephone.setLong(1, id);
-                ResultSet rsTelephone = psTelephone.executeQuery();
-                while (rsTelephone.next()) {
-                    String number = rsTelephone.getString("number");
-                    student.addTelephone(number);
+                sql = "SELECT number FROM phone WHERE student_id = ?";
+                PreparedStatement psPhone = connection.prepareStatement(sql);
+                psPhone.setLong(1, id);
+                ResultSet rsPhone = psPhone.executeQuery();
+                while (rsPhone.next()) {
+                    String number = rsPhone.getString("number");
+                    student.addPhone(number);
                 }
 
                 students.add(student);

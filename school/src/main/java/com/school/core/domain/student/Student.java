@@ -7,7 +7,7 @@ public class Student {
     private String name;
     private Email email;
     private Cpf cpf;
-    private List<Telephone> telephones;
+    private List<Phone> phones;
     private String password;
 
     public Student(String name, Email email, Cpf cpf) {
@@ -16,10 +16,10 @@ public class Student {
         this.cpf = cpf;
     }
 
-    public void addTelephone(String number) {
-        if (telephones.size() == 2) throw new IllegalArgumentException("Max numbers!");
+    public void addPhone(String number) {
+        if (phones.size() == 2) throw new IllegalArgumentException("Max numbers!");
 
-        this.telephones.add(new Telephone(number));
+        this.phones.add(new Phone(number));
     }
 
     public String getName() {
@@ -46,12 +46,12 @@ public class Student {
         this.cpf = cpf;
     }
 
-    public List<Telephone> getTelephones() {
-        return telephones;
+    public List<Phone> getPhones() {
+        return phones;
     }
 
-    public void setTelephones(List<Telephone> telephones) {
-        this.telephones = telephones;
+    public void setTelephones(List<Phone> phones) {
+        this.phones = phones;
     }
 
     public String getPassword() {

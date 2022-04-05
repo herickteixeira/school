@@ -1,12 +1,12 @@
 package com.school.core.domain.student;
 
-public class Telephone {
+public class Phone {
     private String number;
 
-    public Telephone(String number) {
+    public Phone(String number) {
         if (number == null || !number.matches(
                 "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$")) {
-            throw new IllegalArgumentException("Telephone invalid");
+            throw new IllegalArgumentException("Phone invalid");
         }
         this.number = number;
     }

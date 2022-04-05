@@ -9,7 +9,7 @@ public class StudentFactory {
     }
 
     public StudentFactory addStudentNumber(String number) {
-        this.student.addTelephone(number);
+        this.student.addPhone(number);
         return this;
     }
 
