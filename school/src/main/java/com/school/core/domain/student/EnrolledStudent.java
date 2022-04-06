@@ -1,6 +1,6 @@
 package com.school.core.domain.student;
 
-import com.school.core.domain.Event;
+import com.school.core.domain.student.interfaces.Event;
 
 import java.time.LocalDateTime;
 
@@ -17,5 +17,9 @@ public class EnrolledStudent implements Event {
     @Override
     public LocalDateTime moment() {
         return this.moment;
+    }
+
+    public Cpf getCpfStudent() {
+        return cpfStudent;
     }
 }

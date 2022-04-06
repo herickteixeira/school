@@ -1,4 +1,4 @@
-package com.school.core.domain;
+package com.school.core.domain.student.interfaces;
 
 import java.time.LocalDateTime;
 
